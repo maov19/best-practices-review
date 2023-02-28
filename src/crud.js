@@ -12,11 +12,11 @@ const display = () => {
   taskList = JSON.parse(localStorage.getItem('localItem')) || [];
   taskList.forEach((element) => {
     const task = document.createElement('div');
-    const comp = element.completed ? 'checked' : '';
+    const completed = element.completed ? 'checked' : '';
     task.classList.add('task');
     task.setAttribute('draggable', 'true');
     task.innerHTML = `
-    <input type="checkbox" class="check" ${comp} id="check" data-set="${element.index}">
+    <input type="checkbox" class="check" ${completed} id="check" data-set="${element.index}">
     <input class="edit" type="text" value="${element.description}">
     <div class="can">
     <i id="${element.index}" class="fa-solid fa-trash-can"></i>
@@ -60,7 +60,7 @@ addButton.addEventListener('click', (e) => {
   display();
 });
 
-const remove = (index) => {
+const removeTodo = (index) => {
   const removeList = taskList.filter((element) => element.index !== index);
   taskList.length = 0;
   let i = 1;
@@ -76,7 +76,7 @@ const remove = (index) => {
 taskListDisplay.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-solid')) {
     const index = parseInt(e.target.getAttribute('id'), 10);
-    remove(index);
+    removeTodo(index);
   }
 });
 
