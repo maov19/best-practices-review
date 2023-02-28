@@ -1,4 +1,4 @@
-import { clearing, clear } from './clear.js';
+import { clearing, clearCompleted } from './clear.js';
 
 const taskListDisplay = document.querySelector('#data');
 const inputValue = document.querySelector('.new-task');
@@ -82,7 +82,7 @@ taskListDisplay.addEventListener('click', (e) => {
 
 taskListDisplay.addEventListener('click', clearing);
 deleteBtn.addEventListener('click', () => {
-  clear();
+  clearCompleted();
   display();
 });
 
