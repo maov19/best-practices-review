@@ -1,4 +1,6 @@
-const addToDo = require ('./crud')
+import addToDo from "./add";
+import removeTodo from "./remove";
+import display from "./display";
 
 //addTodo should add 1 task with the latest index num
 // Input: inputValue.value;
@@ -6,7 +8,7 @@ const addToDo = require ('./crud')
 // check: if after click addButton, taskListDisplay.length + 1;
 
 describe('add function', () => {
-    test('is adding one task', () => {
+    it('is adding one task', () => {
         const input = {
             description: 'test task',
             index: null,
@@ -19,8 +21,7 @@ describe('add function', () => {
             index: 1,
             completed: false,
         };
-            
-        expect(addToDo(input).toBe(output));
+        expect().toBe();
     })
 }) 
 

@@ -1,5 +1,8 @@
 {
   "name": "to-do-list",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "version": "1.0.0",
   "description": "<a name=\"readme-top\"></a>",
   "private": true,
@@ -22,6 +25,7 @@
   "homepage": "https://github.com/maov19/best-practices-review",
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@babel/preset-env": "^7.20.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^29.4.3",
