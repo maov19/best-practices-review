@@ -112,3 +112,5 @@ taskListDisplay.addEventListener('drop', (e) => {
     display();
   }
 });
+
+module.exports = crud;
