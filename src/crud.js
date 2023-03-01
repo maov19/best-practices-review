@@ -43,9 +43,7 @@ const display = () => {
 
 display();
 
-addButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (inputValue.value === '') return;
+export const addToDo = () => {
   taskList = JSON.parse(localStorage.getItem('localItem')) || [];
 
   const object = {
@@ -58,9 +56,15 @@ addButton.addEventListener('click', (e) => {
 
   inputValue.value = '';
   display();
+}
+
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (inputValue.value === '') return;
+  addToDo();
 });
 
-const removeTodo = (index) => {
+export const removeTodo = (index) => {
   const removeList = taskList.filter((element) => element.index !== index);
   taskList.length = 0;
   let i = 1;
