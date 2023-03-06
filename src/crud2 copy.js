@@ -24,9 +24,9 @@ const display = () => {
     `;
     taskListDisplay.appendChild(task);
 
-    task.addEventListener('dragstart', (e) => {
-      const index = Array.from(taskListDisplay.children).indexOf(e.target);
-      e.dataTransfer.setData('text/plain', index);
+    task.addEventListener('dragstart', (event) => {
+      const index = Array.from(taskListDisplay.children).indexOf(event.target);
+      event.dataTransfer.setData('text/plain', index);
     });
 
     const taskList2 = task.children[1];
@@ -43,7 +43,7 @@ const display = () => {
 
 display();
 
-addButton.addEventListener('click', (e) => {
+addButton.addEventListener('click', (event) => {
   e.preventDefault();
   if (inputValue.value === '') return;
   taskList = JSON.parse(localStorage.getItem('localItem')) || [];
@@ -73,9 +73,9 @@ const remove = (index) => {
   display();
 };
 
-taskListDisplay.addEventListener('click', (e) => {
-  if (e.target.classList.contains('fa-solid')) {
-    const index = parseInt(e.target.getAttribute('id'), 10);
+taskListDisplay.addEventListener('click', (event) => {
+  if (event.target.classList.contains('fa-solid')) {
+    const index = parseInt(event.target.getAttribute('id'), 10);
     remove(index);
   }
 });
@@ -86,21 +86,21 @@ deleteBtn.addEventListener('click', () => {
   display();
 });
 
-taskListDisplay.addEventListener('dragover', (e) => {
-  e.preventDefault();
+taskListDisplay.addEventListener('dragover', (event) => {
+  event.preventDefault();
   taskListDisplay.classList.add('dragover');
 });
 
-taskListDisplay.addEventListener('dragleave', (e) => {
-  e.preventDefault();
+taskListDisplay.addEventListener('dragleave', (event) => {
+  event.preventDefault();
   taskListDisplay.classList.remove('dragover');
 });
 
-taskListDisplay.addEventListener('drop', (e) => {
-  e.preventDefault();
+taskListDisplay.addEventListener('drop', (event) => {
+  event.preventDefault();
   taskListDisplay.classList.remove('dragover');
-  const fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
-  const toIndex = Array.from(taskListDisplay.children).indexOf(e.target);
+  const fromIndex = parseInt(event.dataTransfer.getData('text/plain'), 10);
+  const toIndex = Array.from(taskListDisplay.children).indexOf(event.target);
   if (fromIndex !== toIndex) {
     const task = taskList.splice(fromIndex, 1)[0];
     taskList.splice(toIndex, 0, task);
