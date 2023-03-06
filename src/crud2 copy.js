@@ -3,7 +3,7 @@ import { clearing, clear } from './clear.js';
 const taskListDisplay = document.querySelector('#data');
 const inputValue = document.querySelector('.new-task');
 const addButton = document.querySelector('.add-to-list');
-const deleteBtn = document.querySelector('.delete');
+const deleteButton = document.querySelector('.delete');
 
 let taskList = [];
 
